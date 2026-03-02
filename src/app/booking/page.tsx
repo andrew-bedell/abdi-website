@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { Mountain, Binoculars, Sun, ArrowRight, CreditCard, Shield } from "lucide-react";
 import { kilimanjaroRoutes } from "@/data/kilimanjaro";
 import { safariTiers } from "@/data/safaris";
@@ -8,9 +10,38 @@ import { dayTrips } from "@/data/day-trips";
 
 type BookingType = "kilimanjaro" | "safari" | "day-trip";
 
+function getInitialState(searchParams: URLSearchParams): {
+  type: BookingType;
+  packageId: string;
+} {
+  const route = searchParams.get("route");
+  if (route && kilimanjaroRoutes.some((r) => r.id === route)) {
+    return { type: "kilimanjaro", packageId: route };
+  }
+  const safari = searchParams.get("safari");
+  if (safari && safariTiers.some((t) => t.id === safari)) {
+    return { type: "safari", packageId: safari };
+  }
+  const trip = searchParams.get("trip");
+  if (trip && dayTrips.some((t) => t.id === trip)) {
+    return { type: "day-trip", packageId: trip };
+  }
+  return { type: "kilimanjaro", packageId: "" };
+}
+
 export default function BookingPage() {
-  const [bookingType, setBookingType] = useState<BookingType>("kilimanjaro");
-  const [selectedPackage, setSelectedPackage] = useState("");
+  return (
+    <Suspense>
+      <BookingForm />
+    </Suspense>
+  );
+}
+
+function BookingForm() {
+  const searchParams = useSearchParams();
+  const initial = getInitialState(searchParams);
+  const [bookingType, setBookingType] = useState<BookingType>(initial.type);
+  const [selectedPackage, setSelectedPackage] = useState(initial.packageId);
   const [guests, setGuests] = useState(2);
   const [safariDays, setSafariDays] = useState(3);
   const [name, setName] = useState("");
@@ -19,6 +50,7 @@ export default function BookingPage() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const getEstimate = (): number => {
     if (bookingType === "kilimanjaro") {
@@ -45,6 +77,7 @@ export default function BookingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError("");
 
     try {
       const response = await fetch("/api/create-checkout-session", {
@@ -59,11 +92,15 @@ export default function BookingPage() {
           email,
           date,
           message,
-          amount: getDeposit(),
         }),
       });
 
       const data = await response.json();
+
+      if (!response.ok) {
+        setSubmitError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
 
       if (data.url) {
         window.location.href = data.url;
@@ -71,7 +108,7 @@ export default function BookingPage() {
         setSubmitted(true);
       }
     } catch {
-      setSubmitted(true);
+      setSubmitError("Unable to connect. Please check your internet connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -95,12 +132,12 @@ export default function BookingPage() {
                 <strong>{email}</strong> within 24 hours to confirm your
                 adventure and arrange payment via our secure Stripe portal.
               </p>
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-8 py-3 text-sm font-semibold text-white hover:bg-amber-700 transition-colors"
               >
                 Back to Home
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -209,7 +246,9 @@ export default function BookingPage() {
               <h2 className="text-lg font-semibold text-stone-900 mb-6">
                 2. Select Package
               </h2>
+              <label htmlFor="package" className="sr-only">Select a package</label>
               <select
+                id="package"
                 value={selectedPackage}
                 onChange={(e) => setSelectedPackage(e.target.value)}
                 required
@@ -240,10 +279,11 @@ export default function BookingPage() {
 
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div>
-                  <label className="block text-sm font-medium text-stone-700 mb-2">
+                  <label htmlFor="guests" className="block text-sm font-medium text-stone-700 mb-2">
                     Number of Guests
                   </label>
                   <select
+                    id="guests"
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
                     className="w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
@@ -258,10 +298,11 @@ export default function BookingPage() {
 
                 {bookingType === "safari" && (
                   <div>
-                    <label className="block text-sm font-medium text-stone-700 mb-2">
+                    <label htmlFor="safari-days" className="block text-sm font-medium text-stone-700 mb-2">
                       Number of Days
                     </label>
                     <select
+                      id="safari-days"
                       value={safariDays}
                       onChange={(e) => setSafariDays(Number(e.target.value))}
                       className="w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
@@ -284,10 +325,11 @@ export default function BookingPage() {
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-stone-700 mb-2">
+                  <label htmlFor="full-name" className="block text-sm font-medium text-stone-700 mb-2">
                     Full Name
                   </label>
                   <input
+                    id="full-name"
                     type="text"
                     required
                     value={name}
@@ -297,10 +339,11 @@ export default function BookingPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-stone-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-stone-700 mb-2">
                     Email Address
                   </label>
                   <input
+                    id="email"
                     type="email"
                     required
                     value={email}
@@ -311,10 +354,11 @@ export default function BookingPage() {
                 </div>
               </div>
               <div className="mt-4">
-                <label className="block text-sm font-medium text-stone-700 mb-2">
+                <label htmlFor="start-date" className="block text-sm font-medium text-stone-700 mb-2">
                   Preferred Start Date
                 </label>
                 <input
+                  id="start-date"
                   type="date"
                   required
                   value={date}
@@ -323,10 +367,11 @@ export default function BookingPage() {
                 />
               </div>
               <div className="mt-4">
-                <label className="block text-sm font-medium text-stone-700 mb-2">
+                <label htmlFor="notes" className="block text-sm font-medium text-stone-700 mb-2">
                   Additional Notes (optional)
                 </label>
                 <textarea
+                  id="notes"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={3}
@@ -376,6 +421,13 @@ export default function BookingPage() {
                     due 30-60 days before departure.
                   </p>
                 )}
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitError && (
+              <div className="rounded-2xl border border-red-200 bg-red-50 p-6 mb-6">
+                <p className="text-sm text-red-700">{submitError}</p>
               </div>
             )}
 

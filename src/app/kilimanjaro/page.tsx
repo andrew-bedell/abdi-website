@@ -201,7 +201,7 @@ export default function KilimanjaroPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Reach the Roof of Africa?</h2>
           <p className="text-stone-400 mb-8 max-w-xl mx-auto">
-            Secure your spot with a 20-30% deposit. Balance due 30-60 days
+            Secure your spot with a 25% deposit. Balance due 30-60 days
             before your climb. Secure payment via Stripe.
           </p>
           <Link

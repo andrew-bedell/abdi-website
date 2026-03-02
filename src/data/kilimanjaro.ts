@@ -148,36 +148,3 @@ export const kilimanjaroRoutes: KilimanjaroRoute[] = [
     ],
   },
 ];
-
-export const trekPackages = [
-  {
-    name: "Lemosho Excellence",
-    duration: "8 Days",
-    description: "Premium acclimatization, luxury camping gear",
-    price: 2950,
-  },
-  {
-    name: "Machame Classic",
-    duration: "7 Days",
-    description: "The iconic 'Whiskey Route' experience",
-    price: 2500,
-  },
-  {
-    name: "Marangu Heritage",
-    duration: "6 Days",
-    description: "Hut-based trekking with historical significance",
-    price: 2200,
-  },
-  {
-    name: "Northern Circuit Pro",
-    duration: "9 Days",
-    description: "Maximum safety and remote exploration",
-    price: 3600,
-  },
-  {
-    name: "Shira Plateau Trek",
-    duration: "7 Days",
-    description: "High-altitude traverse for experienced hikers",
-    price: 2700,
-  },
-];
