@@ -149,7 +149,7 @@ Every content page follows this layout:
 
 ### Booking Flow
 1. Customer selects trip type and package on public pages → clicks "Book Now" → lands on `/booking`.
-2. Booking page pre-populates from URL query params (`?type=kilimanjaro&package=lemosho`).
+2. Booking page pre-populates from URL query params (`?route=lemosho`, `?safari=gold`, `?trip=materuni`).
 3. Customer fills out details, selects date via calendar (react-day-picker), submits.
 4. Server validates all inputs, calculates price server-side from `src/data/` constants, creates `Customer` and `Booking` records in database.
 5. (Future) Stripe payment is processed before confirming the booking.
@@ -202,3 +202,44 @@ Do not add additional dependencies beyond these without clear justification.
 - Do not create public-facing user accounts — authentication is admin/guide only.
 - Do not store plain-text passwords — always hash with bcryptjs.
 - Do not trust client-submitted prices — always calculate server-side from `src/data/` constants.
+
+## Feature & Bug Tracking
+
+All feature and bug tracking lives in `.claude/` with the following folder structure:
+
+```
+.claude/
+├── features/     # Docs for currently built features
+├── planned/      # Docs for features not yet implemented
+└── bugs/         # Docs for known open bugs
+    └── fixed/    # Docs for bugs that have been resolved
+```
+
+### Workflow Rules
+
+1. **New feature launched**: Move its doc from `.claude/planned/` to `.claude/features/`. Update the doc's status to "Built" and record the implementation date.
+2. **New bug discovered**: Create a doc in `.claude/bugs/` with severity, description, affected files, and reproduction steps.
+3. **Bug fixed**: Move its doc from `.claude/bugs/` to `.claude/bugs/fixed/`. Update the doc's status to "Fixed".
+4. **Planned feature added**: Create a doc in `.claude/planned/` with priority, description, implementation steps, dependencies, and which existing bugs it resolves (if any).
+
+### Naming Convention
+- Use kebab-case filenames: `feature-name.md`, `bug-id-short-description.md`
+- Bug IDs use a category prefix: `bug-` (functional), `sec-` (security), `a11y-` (accessibility), `cq-` (code quality)
+
+### Doc Template (Bugs)
+```markdown
+# CATEGORY-N: Short Title
+## Severity: High | Medium | Low
+## Status: Open | Fixed
+### Description
+### Fix
+### File
+```
+
+### Doc Template (Features)
+```markdown
+# Feature Name
+## Status: Built | Planned
+### Description
+### Files
+```
