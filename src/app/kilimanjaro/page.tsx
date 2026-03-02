@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mountain, Clock, TrendingUp, ArrowRight, CheckCircle } from "lucide-react";
 import { kilimanjaroRoutes } from "@/data/kilimanjaro";
+import { abdiImages } from "@/data/images";
 
 function DifficultyBadge({ difficulty }: { difficulty: string }) {
   const colors: Record<string, string> = {
@@ -23,8 +25,16 @@ export default function KilimanjaroPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-sky-900 pt-32 pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-sky-900 pt-32 pb-20">
+        <Image
+          src={abdiImages.heroKilimanjaro}
+          alt="Abdi guiding a Kilimanjaro expedition"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-900/80 via-stone-800/70 to-sky-900/80" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sky-400 font-medium mb-4 tracking-wider uppercase text-sm">
               5,895 Meters &middot; The Roof of Africa
