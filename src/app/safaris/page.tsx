@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Binoculars,
@@ -7,13 +8,22 @@ import {
   Calendar,
 } from "lucide-react";
 import { safariTiers, migrationCalendar, safariParks } from "@/data/safaris";
+import { abdiImages } from "@/data/images";
 
 export default function SafarisPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-green-900 to-stone-800 pt-32 pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-stone-900 via-green-900 to-stone-800 pt-32 pb-20">
+        <Image
+          src={abdiImages.heroSafaris}
+          alt="Abdi on a wildlife safari in the Serengeti"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-900/80 via-green-900/70 to-stone-800/80" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-green-400 font-medium mb-4 tracking-wider uppercase text-sm">
               The Northern Circuit &middot; Tanzania

@@ -1,13 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Sun, Clock, ArrowRight, CheckCircle } from "lucide-react";
 import { dayTrips } from "@/data/day-trips";
+import { abdiImages } from "@/data/images";
 
 export default function DayTripsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-amber-800 to-stone-800 pt-32 pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-stone-900 via-amber-800 to-stone-800 pt-32 pb-20">
+        <Image
+          src={abdiImages.heroDayTrips}
+          alt="Abdi leading a cultural day trip near Arusha"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-900/80 via-amber-800/70 to-stone-800/80" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-amber-300 font-medium mb-4 tracking-wider uppercase text-sm">
               Arusha &amp; Surroundings

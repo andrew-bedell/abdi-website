@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Mountain,
@@ -8,13 +9,22 @@ import {
   Leaf,
   ArrowRight,
 } from "lucide-react";
+import { abdiImages } from "@/data/images";
 
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-amber-900 to-stone-800 pt-32 pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-stone-900 via-amber-900 to-stone-800 pt-32 pb-20">
+        <Image
+          src={abdiImages.heroAbout}
+          alt="Abdi in the Tanzanian wilderness"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-900/80 via-amber-900/70 to-stone-800/80" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-amber-400 font-medium mb-4 tracking-wider uppercase text-sm">
               Our Story
@@ -35,12 +45,19 @@ export default function AboutPage() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gradient-to-br from-amber-100 to-stone-200 rounded-2xl p-12 flex items-center justify-center min-h-[500px]">
-              <div className="text-center">
-                <Mountain className="h-32 w-32 text-amber-600 mx-auto mb-6" />
-                <p className="text-2xl font-bold text-stone-800">Abdi</p>
-                <p className="text-stone-600 mt-2">Founder &amp; Lead Guide</p>
-                <p className="text-stone-500 text-sm mt-1">Arusha, Tanzania</p>
+            <div className="relative rounded-2xl overflow-hidden min-h-[500px]">
+              <Image
+                src={abdiImages.aboutPortrait}
+                alt="Abdi, founder and lead guide of Zimba Tours"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <p className="text-2xl font-bold">Abdi</p>
+                <p className="text-stone-200 mt-1">Founder &amp; Lead Guide</p>
+                <p className="text-stone-300 text-sm mt-0.5">Arusha, Tanzania</p>
               </div>
             </div>
 
