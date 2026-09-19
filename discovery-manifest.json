@@ -1,0 +1,16 @@
+{
+  "businessName": "Zimba Tours",
+  "repository": "https://github.com/andrew-bedell/abdi-website",
+  "productionUrl": "https://abdi-website-gamma.vercel.app",
+  "vercel": { "projectId": "prj_pkgddwA7Z3wTieYKsaml6PpxtLoT", "projectName": "abdi-website", "teamSlug": "discovery-projects" },
+  "platformUrl": "https://platform.discoverymarketing.io",
+  "businessId": null,
+  "siteKey": null,
+  "status": "awaiting-tenant-provisioning",
+  "leadEndpoint": "https://platform.discoverymarketing.io/api/lead",
+  "languages": ["en"],
+  "legalPaths": ["/privacy"],
+  "publicConfiguration": ["NEXT_PUBLIC_DISCOVERY_SITE_KEY", "NEXT_PUBLIC_DISCOVERY_RELEASE_REVISION"],
+  "releaseRevision": "Vercel Git builds use git:VERCEL_GIT_COMMIT_SHA; local previews require an explicit immutable revision",
+  "ownerEmail": "zimbatoursafari@gmail.com"
+}

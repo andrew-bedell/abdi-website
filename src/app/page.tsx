@@ -19,7 +19,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('/hero-pattern.svg')] opacity-5" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-3xl">
-            <p className="text-amber-400 font-medium mb-4 tracking-wider uppercase text-sm">
+            <p data-content="home.hero.eyebrow" className="text-amber-400 font-medium mb-4 tracking-wider uppercase text-sm">
               Premium Adventures from Arusha, Tanzania
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -27,7 +27,7 @@ export default function Home() {
               <br />
               <span className="text-amber-400">Explore the Serengeti.</span>
             </h1>
-            <p className="text-lg text-stone-300 leading-relaxed mb-10 max-w-2xl">
+            <p data-content="home.hero.description" className="text-lg text-stone-300 leading-relaxed mb-10 max-w-2xl">
               Led by founder Abdi, Zimba Tours delivers premium Kilimanjaro
               expeditions and luxury safari experiences with uncompromising
               safety, ethical practices, and personal attention to every detail.

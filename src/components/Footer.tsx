@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mountain, MapPin, Mail, Phone } from "lucide-react";
+import { Mountain, MapPin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -100,11 +100,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-amber-500 flex-shrink-0" />
-                info@zimbatours.com
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-amber-500 flex-shrink-0" />
-                +255 700 000 000
+                <a href="mailto:zimbatoursafari@gmail.com" className="hover:text-amber-400">zimbatoursafari@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -114,6 +110,7 @@ export default function Footer() {
           <p className="text-xs text-stone-500">
             &copy; {new Date().getFullYear()} Zimba Tours. All rights reserved.
           </p>
+          <Link href="/privacy" className="text-xs text-stone-400 hover:text-amber-400">Privacy notice</Link>
           <p className="text-xs text-stone-500">
             KPAP Partner &middot; Zero Waste Policy &middot; AMREF Flying
             Doctors
