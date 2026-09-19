@@ -74,41 +74,24 @@ function BookingForm() {
     return Math.round(total * 0.25);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // React owns this form; prevent the site-kit document listener sending twice.
+    e.stopPropagation();
+    const form = e.currentTarget;
     setIsSubmitting(true);
     setSubmitError("");
-
     try {
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          bookingType,
-          packageId: selectedPackage,
-          guests,
-          safariDays: bookingType === "safari" ? safariDays : undefined,
-          name,
-          email,
-          date,
-          message,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setSubmitError(data.error || "Something went wrong. Please try again.");
-        return;
+      const siteKit = (window as Window & {
+        siteKit?: { submitLead: (form: HTMLFormElement) => Promise<unknown> };
+      }).siteKit;
+      if (!siteKit) {
+        throw new Error("Online requests are temporarily unavailable. Please email zimbatoursafari@gmail.com.");
       }
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        setSubmitted(true);
-      }
-    } catch {
-      setSubmitError("Unable to connect. Please check your internet connection and try again.");
+      await siteKit.submitLead(form);
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "We could not save your request. Please try again or email zimbatoursafari@gmail.com.");
     } finally {
       setIsSubmitting(false);
     }
@@ -129,8 +112,7 @@ function BookingForm() {
               </p>
               <p className="text-stone-500 text-sm mb-8">
                 Abdi will personally review your request and contact you at{" "}
-                <strong>{email}</strong> within 24 hours to confirm your
-                adventure and arrange payment via our secure Stripe portal.
+                <strong>{email}</strong> to discuss availability, confirm your adventure, and arrange payment. No payment has been taken.
               </p>
               <Link
                 href="/"
@@ -155,8 +137,7 @@ function BookingForm() {
               Book Your Adventure
             </h1>
             <p className="text-lg text-stone-300">
-              Secure your spot with a 25% deposit. Balance due 30-60 days before
-              departure. Secure multi-currency payment via Stripe.
+              Tell us about your trip. Abdi will confirm availability, pricing and payment arrangements with you.
             </p>
           </div>
         </div>
@@ -164,7 +145,10 @@ function BookingForm() {
 
       <section className="py-12 bg-stone-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} data-lead-form data-lead-source="Safari booking inquiry">
+            <input name="hp" type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+            <input name="trip_type" type="hidden" value={bookingType} />
+            <input name="message" type="hidden" value={`Trip: ${bookingType}\nPackage: ${selectedPackage}\nGuests: ${guests}\nPreferred date: ${date}\n${bookingType === "safari" ? `Safari days: ${safariDays}\n` : ""}Estimated total (not a confirmed price): $${getEstimate()}\nNotes: ${message}`} />
             {/* Adventure Type */}
             <div className="bg-white rounded-2xl border border-stone-200 p-8 mb-6">
               <h2 className="text-lg font-semibold text-stone-900 mb-6">
@@ -330,6 +314,7 @@ function BookingForm() {
                   </label>
                   <input
                     id="full-name"
+                    name="full_name"
                     type="text"
                     required
                     value={name}
@@ -344,6 +329,7 @@ function BookingForm() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     required
                     value={email}
@@ -408,7 +394,7 @@ function BookingForm() {
                     <span className="font-semibold text-stone-900">
                       {bookingType === "day-trip"
                         ? "Amount Due"
-                        : "Deposit Due Now"}
+                        : "Estimated Deposit"}
                     </span>
                     <span className="font-bold text-lg text-amber-600">
                       ${getDeposit().toLocaleString()} USD
@@ -436,8 +422,7 @@ function BookingForm() {
               <div className="flex items-center gap-3 mb-6">
                 <Shield className="h-5 w-5 text-green-600" />
                 <p className="text-sm text-stone-600">
-                  Secure payment processed via Stripe. We accept credit cards,
-                  Apple Pay, and Google Pay in multiple currencies.
+                  Send a booking inquiry to Abdi. Availability and the final price will be confirmed before any payment is arranged.
                 </p>
               </div>
               <button
@@ -448,12 +433,11 @@ function BookingForm() {
                 <CreditCard className="h-5 w-5" />
                 {isSubmitting
                   ? "Processing..."
-                  : `Proceed to Payment \u2014 $${getDeposit().toLocaleString()}`}
+                  : "Send Booking Inquiry"}
                 {!isSubmitting && <ArrowRight className="h-5 w-5" />}
               </button>
               <p className="text-xs text-stone-400 text-center mt-4">
-                By proceeding, you agree to our booking terms. Abdi will
-                confirm your booking within 24 hours.
+                We use your details to respond to your inquiry. This is not a confirmed booking. Read our <Link href="/privacy" className="underline">privacy notice</Link>.
               </p>
             </div>
           </form>

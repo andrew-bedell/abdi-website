@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -19,6 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        {process.env.NEXT_PUBLIC_DISCOVERY_SITE_KEY && (
+          <Script
+            src="https://platform.discoverymarketing.io/site-kit.js"
+            data-site-key={process.env.NEXT_PUBLIC_DISCOVERY_SITE_KEY}
+            data-site-release-revision={process.env.VERCEL_GIT_COMMIT_SHA ? `git:${process.env.VERCEL_GIT_COMMIT_SHA}` : process.env.NEXT_PUBLIC_DISCOVERY_RELEASE_REVISION}
+            strategy="afterInteractive"
+          />
+        )}
         <Header />
         <main>{children}</main>
         <Footer />

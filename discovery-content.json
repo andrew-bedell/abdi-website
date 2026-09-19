@@ -1,0 +1,4 @@
+[
+  { "page": "home", "section": "hero", "blockKey": "eyebrow", "label": "Homepage introduction", "blockType": "text", "publishedValue": { "text": "Premium Adventures from Arusha, Tanzania" }, "sortOrder": 10 },
+  { "page": "home", "section": "hero", "blockKey": "description", "label": "Homepage description", "blockType": "text", "publishedValue": { "text": "Led by founder Abdi, Zimba Tours delivers premium Kilimanjaro expeditions and luxury safari experiences with uncompromising safety, ethical practices, and personal attention to every detail." }, "sortOrder": 20 }
+]

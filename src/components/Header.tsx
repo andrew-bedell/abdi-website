@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Mountain, Phone } from "lucide-react";
+import { Menu, X, Mountain, Mail } from "lucide-react";
 
 const navigation = [
   { name: "Kilimanjaro", href: "/kilimanjaro" },
@@ -40,10 +40,10 @@ export default function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+255700000000"
+              href="mailto:zimbatoursafari@gmail.com"
               className="flex items-center gap-1.5 text-sm text-stone-600 hover:text-amber-600"
             >
-              <Phone className="h-4 w-4" />
+              <Mail className="h-4 w-4" />
               Contact
             </a>
             <Link
