@@ -1,7 +1,7 @@
 {
   "businessName": "Zimba Tours",
   "repository": "https://github.com/andrew-bedell/abdi-website",
-  "productionUrl": "https://abdi-website-gamma.vercel.app",
+  "productionUrl": "https://www.zimbatourstanzania.com",
   "vercel": {
     "projectId": "prj_pkgddwA7Z3wTieYKsaml6PpxtLoT",
     "projectName": "abdi-website",
@@ -23,5 +23,10 @@
     "NEXT_PUBLIC_DISCOVERY_RELEASE_REVISION"
   ],
   "releaseRevision": "Vercel Git builds use git:VERCEL_GIT_COMMIT_SHA; local previews require an explicit immutable revision",
-  "ownerEmail": "zimbatoursafari@gmail.com"
+  "ownerEmail": "zimbatoursafari@gmail.com",
+  "allowedOrigins": [
+    "https://www.zimbatourstanzania.com",
+    "https://zimbatourstanzania.com",
+    "https://abdi-website-gamma.vercel.app"
+  ]
 }

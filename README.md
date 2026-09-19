@@ -37,7 +37,7 @@ The booking system supports:
 
 ## Discovery Platform integration
 
-The existing public site is https://abdi-website-gamma.vercel.app (Vercel project `abdi-website`). The booking page now submits inquiries using Discovery's hosted site-kit, which preserves attribution, consent, deduplication and tenant-configured Turnstile. This is not payment processing or a confirmed booking. The old demo checkout endpoint returns 410 instead of pretending to save a request.
+The existing public site is https://www.zimbatourstanzania.com (Vercel project `abdi-website`). The booking page now submits inquiries using Discovery's hosted site-kit, which preserves attribution, consent, deduplication and tenant-configured Turnstile. This is not payment processing or a confirmed booking. The old demo checkout endpoint returns 410 instead of pretending to save a request.
 
 Provision the paused business through the Discovery operator dashboard, record its generated identifiers in `discovery-manifest.json`, and configure `NEXT_PUBLIC_DISCOVERY_SITE_KEY` for the appropriate Vercel environment. Git deployments use `git:VERCEL_GIT_COMMIT_SHA` as the installed release marker; other previews need `NEXT_PUBLIC_DISCOVERY_RELEASE_REVISION` set to an immutable candidate identifier. Seed `discovery-content.json` through `/api/content/define` for the correct business. Invite Abdi at `zimbatoursafari@gmail.com` as that business's owner.
 

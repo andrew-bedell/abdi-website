@@ -1,6 +1,6 @@
 # Zimba Tours public website
 
-This Next.js repository owns https://abdi-website-gamma.vercel.app, an English-language safari and Kilimanjaro inquiry website for Abdi. Discovery Platform owns CRM, content editing, analytics and provider credentials.
+This Next.js repository owns https://www.zimbatourstanzania.com, an English-language safari and Kilimanjaro inquiry website for Abdi. Discovery Platform owns CRM, content editing, analytics and provider credentials.
 
 Before integration edits read discovery-manifest.json and the Platform AGENTS.md, docs/api-contract.md, docs/runbooks/client-rollout.md and docs/retrofit-playbook.md in /Users/andrewbedell/repos/Discovery Platform.
 
