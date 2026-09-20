@@ -44,3 +44,22 @@ Provision the paused business through the Discovery operator dashboard, record i
 An absent key shows a recoverable contact message and does not claim that an inquiry was saved. Keep the existing production deployment until preview verification, required provider connections, owner sign-in and the Platform launch/activation gates are complete. Secrets for email and advertising remain in Platform, never this project. No paid-media setup is included in this integration.
 
 Run `npm run lint` and `npm run build`, then check the home, booking and privacy pages at desktop/mobile widths. Verify a rejected CRM request cannot show success and an accepted request creates exactly one submission with all trip details. Use labeled controlled test data only after authorization.
+
+## Discovery Platform service catalog
+
+Abdi manages services, galleries, groups, and navigation in Discovery Platform's
+**Services & navigation** screen (`#/catalog`). This repository renders the published
+catalog at `/experiences`, `/experiences/[slug]`, and `/experiences/groups/[slug]`.
+The inquiry URL `/booking?experience=[slug]` uses the existing site-kit CRM flow.
+
+Publish Platform's service-catalog migration and API **before** releasing this client.
+The public API must recognize the existing site key and active tenant; no activation
+gates are bypassed. Drafts are private. An intentionally empty publication is never
+replaced by old trips. Before first publication, the original catalog in
+`src/data/catalog.json` supplies the starting content. Existing category routes
+switch to managed listings after publication. Do not change the original seed's
+pricing independently after adoption: Platform owns published service data.
+
+`DISCOVERY_PLATFORM_URL` optionally overrides the server-side catalog API origin for
+local tests; normal production uses `https://platform.discoverymarketing.io`.
+See the Platform repository's `docs/service-catalog.md` for release order and tests.

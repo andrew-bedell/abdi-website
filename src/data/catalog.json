@@ -1,0 +1,403 @@
+{
+  "services": [
+    {
+      "id": "safari-platinum",
+      "slug": "safari-platinum",
+      "name": "Platinum Migration",
+      "description": "Follow the Great Migration through the Northern Serengeti with luxury mobile camps that move with the herds. Witness dramatic Mara River crossings from exclusive vantage points.\n\nHighlights\nExclusive Mara River crossing viewpoints\nLuxury mobile tented camps\nPrivate game drives\nExpert naturalist guides\nChampagne bush breakfasts",
+      "duration": "",
+      "groupIds": [
+        "safaris",
+        "serengeti"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 1200,
+        "currency": "USD",
+        "unit": "per person per day"
+      }
+    },
+    {
+      "id": "safari-gold",
+      "slug": "safari-gold",
+      "name": "Gold Big Five",
+      "description": "Experience the Big Five in the heart of the Serengeti and descend into the Ngorongoro Crater. Stay at iconic 5-star lodges with uninterrupted views of the African plains.\n\nHighlights\nBig Five encounters\nNgorongoro Crater descent\n5-star lodge accommodation\nSunrise and sunset game drives\nCultural Maasai interactions",
+      "duration": "",
+      "groupIds": [
+        "safaris",
+        "serengeti",
+        "ngorongoro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 850,
+        "currency": "USD",
+        "unit": "per person per day"
+      }
+    },
+    {
+      "id": "safari-silver",
+      "slug": "safari-silver",
+      "name": "Silver Expedition",
+      "description": "Explore the baobab forests of Tarangire and the flamingo-covered shores of Lake Manyara. Boutique camps provide intimate access to Tanzania's diverse wildlife.\n\nHighlights\nMassive elephant herds in Tarangire\nTree-climbing lions of Manyara\nFlamingo-covered lake shores\nBoutique camp experience\nWalking safari options",
+      "duration": "",
+      "groupIds": [
+        "safaris",
+        "tarangire",
+        "lake-manyara"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 600,
+        "currency": "USD",
+        "unit": "per person per day"
+      }
+    },
+    {
+      "id": "safari-photographic",
+      "slug": "safari-photographic",
+      "name": "Photographic Private",
+      "description": "A bespoke safari designed for photographers, with specialist guides who understand light, composition, and animal behavior. Customized vehicle setups for optimal shooting.\n\nHighlights\nSpecialist photography guides\nCustom vehicle camera mounts\nGolden hour positioning\nUnlimited game drive time\nPost-processing workshops",
+      "duration": "",
+      "groupIds": [
+        "safaris"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 1500,
+        "currency": "USD",
+        "unit": "per person per day"
+      }
+    },
+    {
+      "id": "safari-family",
+      "slug": "safari-family",
+      "name": "Family Adventure",
+      "description": "Safari adventures designed for families with children of all ages. Safe, engaging, and educational wildlife experiences with family-friendly accommodation.\n\nHighlights\nChild-friendly activities and guides\nFamily suite accommodation\nFlexible game drive schedules\nEducational wildlife programs\nSafe and secure environments",
+      "duration": "",
+      "groupIds": [
+        "safaris"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 700,
+        "currency": "USD",
+        "unit": "per person per day"
+      }
+    },
+    {
+      "id": "lemosho",
+      "slug": "lemosho",
+      "name": "Lemosho Excellence",
+      "description": "The most diverse ecological transitions and superior acclimatization profile. Traverse the ancient Shira Plateau and conquer the iconic Barranco Wall on your way to Uhuru Peak.\n\nHighlights\nHighest success rate among standard routes\nDiverse ecological zones from rainforest to arctic\nScenic Shira Plateau crossing\nIconic Barranco Wall scramble\nPremium luxury camping gear included",
+      "duration": "8 Days",
+      "groupIds": [
+        "kilimanjaro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 2850,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "machame",
+      "slug": "machame",
+      "name": "Machame Classic",
+      "description": "The iconic 'Whiskey Route' offers dramatic scenery and a challenging climb through diverse terrain. A favorite among experienced trekkers seeking an authentic mountain experience.\n\nHighlights\nMost popular route on Kilimanjaro\nStunning scenery throughout\nExcellent acclimatization profile\nChallenging but rewarding terrain\nFull camping experience",
+      "duration": "7 Days",
+      "groupIds": [
+        "kilimanjaro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 2400,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "marangu",
+      "slug": "marangu",
+      "name": "Marangu Heritage",
+      "description": "The only route providing permanent hut accommodation, offering protection from the elements. Known as the 'Coca-Cola Route,' it follows a gentler gradient with historical significance.\n\nHighlights\nOnly route with hut accommodation\nGentler gradient suitable for beginners\nHistorical significance as the oldest route\nSame ascent and descent path\nComfortable sleeping in mountain huts",
+      "duration": "6 Days",
+      "groupIds": [
+        "kilimanjaro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 2100,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "northern-circuit",
+      "slug": "northern-circuit",
+      "name": "Northern Circuit Pro",
+      "description": "The longest route on Kilimanjaro offering unparalleled acclimatization and the highest summit success rate. A full circumnavigation reveals the mountain's most remote and pristine slopes.\n\nHighlights\nHighest success rate of any route (98%)\nFull 360° circumnavigation of Kilimanjaro\nMost remote and uncrowded experience\nMaximum acclimatization time\nPristine, untouched wilderness",
+      "duration": "9 Days",
+      "groupIds": [
+        "kilimanjaro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 3500,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "rongai",
+      "slug": "rongai",
+      "name": "Rongai Remote",
+      "description": "Approaching from the north near the Kenyan border, Rongai offers a drier, less crowded alternative. The gentle gradient and unique perspective make it ideal for those seeking solitude.\n\nHighlights\nDriest route, ideal during rainy season\nLess crowded northern approach\nGentle gradient with steady ascent\nUnique views of the Kenyan plains\nWilderness camping experience",
+      "duration": "7 Days",
+      "groupIds": [
+        "kilimanjaro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 2550,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "umbwe",
+      "slug": "umbwe",
+      "name": "Umbwe Technical",
+      "description": "The most direct and challenging route to the summit. Umbwe is reserved for experienced, physically fit climbers who thrive on steep, demanding terrain.\n\nHighlights\nMost challenging route on Kilimanjaro\nDirect vertical ascent\nLeast crowded route\nFor experienced climbers only\nDramatic forest and moorland scenery",
+      "duration": "6 Days",
+      "groupIds": [
+        "kilimanjaro"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "from",
+        "amount": 2300,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "materuni",
+      "slug": "materuni",
+      "name": "Materuni Waterfall",
+      "description": "Trek through lush banana and coffee plantations to the stunning Materuni Waterfall. Learn the art of traditional coffee making from local farmers and enjoy an authentic Chagga lunch.\n\nIncludes\nTransport from Arusha\nLocal guide\nCoffee making experience\nTraditional lunch\nWaterfall hike",
+      "duration": "Full Day",
+      "groupIds": [
+        "day-trips",
+        "coffee-tours"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "fixed",
+        "amount": 150,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "chemka",
+      "slug": "chemka",
+      "name": "Chemka Hot Springs",
+      "description": "Swim in the crystal-clear, geothermally heated turquoise waters of Chemka Hot Springs, nestled in a lush tropical forest setting.\n\nIncludes\nTransport from Arusha\nPark entrance fees\nSwimming time\nPacked lunch\nTowels provided",
+      "duration": "Full Day",
+      "groupIds": [
+        "day-trips"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "fixed",
+        "amount": 120,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "city-tour",
+      "slug": "city-tour",
+      "name": "Arusha City Tour",
+      "description": "Discover the vibrant city of Arusha, the safari capital of East Africa. Visit the colorful Maasai Market, the Cultural Heritage Center, and enjoy local street food.\n\nIncludes\nAir-conditioned transport\nKnowledgeable city guide\nMarket visit\nCultural Heritage Center entry\nRefreshments",
+      "duration": "Half Day",
+      "groupIds": [
+        "day-trips",
+        "cultural-experiences"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "fixed",
+        "amount": 80,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    },
+    {
+      "id": "maasai-boma",
+      "slug": "maasai-boma",
+      "name": "Maasai Boma Visit",
+      "description": "An immersive cultural experience visiting an authentic Maasai community. Witness traditional dances, learn about Maasai customs, and participate in daily village activities.\n\nIncludes\nTransport from Arusha\nCommunity contribution fee\nCultural guide and translator\nTraditional lunch\nBeadwork demonstration",
+      "duration": "Full Day",
+      "groupIds": [
+        "day-trips",
+        "cultural-experiences"
+      ],
+      "status": "published",
+      "photos": [],
+      "price": {
+        "type": "fixed",
+        "amount": 200,
+        "currency": "USD",
+        "unit": "per person"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "safaris",
+      "name": "Safaris",
+      "slug": "safaris",
+      "description": ""
+    },
+    {
+      "id": "kilimanjaro",
+      "name": "Kilimanjaro trips",
+      "slug": "kilimanjaro",
+      "description": ""
+    },
+    {
+      "id": "day-trips",
+      "name": "Day trips & excursions",
+      "slug": "day-trips",
+      "description": ""
+    },
+    {
+      "id": "serengeti",
+      "name": "Serengeti",
+      "slug": "serengeti",
+      "description": ""
+    },
+    {
+      "id": "ngorongoro",
+      "name": "Ngorongoro",
+      "slug": "ngorongoro",
+      "description": ""
+    },
+    {
+      "id": "tarangire",
+      "name": "Tarangire",
+      "slug": "tarangire",
+      "description": ""
+    },
+    {
+      "id": "lake-manyara",
+      "name": "Lake Manyara",
+      "slug": "lake-manyara",
+      "description": ""
+    },
+    {
+      "id": "coffee-tours",
+      "name": "Coffee tours",
+      "slug": "coffee-tours",
+      "description": ""
+    },
+    {
+      "id": "cultural-experiences",
+      "name": "Cultural experiences",
+      "slug": "cultural-experiences",
+      "description": ""
+    }
+  ],
+  "navigation": [
+    {
+      "id": "safaris",
+      "label": "Safaris",
+      "type": "group",
+      "target": "safaris",
+      "parentId": null
+    },
+    {
+      "id": "kilimanjaro",
+      "label": "Kilimanjaro trips",
+      "type": "group",
+      "target": "kilimanjaro",
+      "parentId": null
+    },
+    {
+      "id": "day-trips",
+      "label": "Day trips & excursions",
+      "type": "group",
+      "target": "day-trips",
+      "parentId": null
+    },
+    {
+      "id": "serengeti",
+      "label": "Serengeti",
+      "type": "group",
+      "target": "serengeti",
+      "parentId": "safaris"
+    },
+    {
+      "id": "ngorongoro",
+      "label": "Ngorongoro",
+      "type": "group",
+      "target": "ngorongoro",
+      "parentId": "safaris"
+    },
+    {
+      "id": "tarangire",
+      "label": "Tarangire",
+      "type": "group",
+      "target": "tarangire",
+      "parentId": "safaris"
+    },
+    {
+      "id": "lake-manyara",
+      "label": "Lake Manyara",
+      "type": "group",
+      "target": "lake-manyara",
+      "parentId": "safaris"
+    },
+    {
+      "id": "safety",
+      "label": "Safety",
+      "type": "page",
+      "target": "/safety",
+      "parentId": null
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "type": "page",
+      "target": "/about",
+      "parentId": null
+    }
+  ]
+}
