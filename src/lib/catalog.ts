@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { unstable_rethrow } from 'next/navigation';
 import initialCatalog from '@/data/catalog.json';
 import type { Catalog } from './catalog-types';
 
@@ -16,6 +17,7 @@ export const getCatalog = cache(async (): Promise<{ catalog: Catalog; managed: b
         return { catalog: data.catalog as Catalog, managed: true, publishedAt: data.publishedAt || null };
       }
     } catch (error) {
+      unstable_rethrow(error);
       // Do not serve stale legacy prices or archived services during a Platform outage.
       console.error('Published catalog unavailable:', error instanceof Error ? error.message : 'unknown error');
       throw new Error('Experiences are temporarily unavailable. Please try again shortly.');
