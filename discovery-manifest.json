@@ -28,5 +28,12 @@
     "https://www.zimbatourstanzania.com",
     "https://zimbatourstanzania.com",
     "https://abdi-website-gamma.vercel.app"
-  ]
+  ],
+  "contentPublishing": {
+    "environmentVariable": "DISCOVERY_CATALOG_SITE_KEY",
+    "endpoint": "/api/site/catalog",
+    "mode": "content-only",
+    "updates": "Runtime published snapshot; no redeployment per edit",
+    "crmActivation": "Independent; status remains paused until its activation checks pass"
+  }
 }

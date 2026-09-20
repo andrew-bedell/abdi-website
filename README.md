@@ -63,3 +63,18 @@ pricing independently after adoption: Platform owns published service data.
 `DISCOVERY_PLATFORM_URL` optionally overrides the server-side catalog API origin for
 local tests; normal production uses `https://platform.discoverymarketing.io`.
 See the Platform repository's `docs/service-catalog.md` for release order and tests.
+
+### Post-launch content publishing
+
+Abdi maintains services, navigation and Homepage sections in Discovery Platform's
+Services & navigation area. Save draft is private; Publish website updates the
+runtime snapshot on the next page load, without rebuilding this site. Set the
+server-side `DISCOVERY_CATALOG_SITE_KEY` after explicitly connecting the tenant's
+content publication. This key is an identifier, not a provider credential. CRM,
+email and advertising activation are separate; do not enable site-kit to publish
+editorial content. The manifest records the existing tenant identity.
+
+Homepage sections reuse the original layout and styling. Existing sections can be
+reordered/hidden, and new page collections or featured pages can reference services,
+groups and supported site pages. Keep the hero, header and footer in place. Extend
+components for custom needs after launch; do not regenerate the site.
