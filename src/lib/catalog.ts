@@ -3,8 +3,8 @@ import initialCatalog from '@/data/catalog.json';
 import type { Catalog } from './catalog-types';
 
 // Public, published records only. An empty published catalog must never resurrect old trips.
-export const getCatalog = cache(async (): Promise<{ catalog: Catalog; managed: boolean }> => {
-  const siteKey = process.env.NEXT_PUBLIC_DISCOVERY_SITE_KEY;
+export const getCatalog = cache(async (): Promise<{ catalog: Catalog; managed: boolean; publishedAt: string | null }> => {
+  const siteKey = process.env.DISCOVERY_CATALOG_SITE_KEY || process.env.NEXT_PUBLIC_DISCOVERY_SITE_KEY;
   if (siteKey) {
     try {
       const origin = process.env.DISCOVERY_PLATFORM_URL || 'https://platform.discoverymarketing.io';
@@ -13,7 +13,7 @@ export const getCatalog = cache(async (): Promise<{ catalog: Catalog; managed: b
       const data = await response.json();
       if (data.catalog !== null) {
         if (!data.catalog || !Array.isArray(data.catalog.services) || !Array.isArray(data.catalog.groups) || !Array.isArray(data.catalog.navigation)) throw new Error('Invalid catalog response');
-        return { catalog: data.catalog as Catalog, managed: true };
+        return { catalog: data.catalog as Catalog, managed: true, publishedAt: data.publishedAt || null };
       }
     } catch (error) {
       // Do not serve stale legacy prices or archived services during a Platform outage.
@@ -21,5 +21,5 @@ export const getCatalog = cache(async (): Promise<{ catalog: Catalog; managed: b
       throw new Error('Experiences are temporarily unavailable. Please try again shortly.');
     }
   }
-  return { catalog: initialCatalog as Catalog, managed: false };
+  return { catalog: initialCatalog as Catalog, managed: false, publishedAt: null };
 });

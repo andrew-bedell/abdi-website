@@ -31,3 +31,19 @@ credential in this public repository. Preserve the distinction between a null
 (unadopted) catalog and an intentionally empty publication. Do not resurrect legacy
 services/prices when the API fails. Publish the Platform migration/API before client
 changes that depend on it. Service inquiries remain CRM requests, not checkout.
+
+## Post-launch maintenance and homepage sections
+
+This site is launched. Preserve its existing design, content, URLs and components.
+Add pages/sections incrementally; never regenerate the whole website for a local
+change. Initial website-builder composition rules do not override established
+custom needs. A whole-site redesign requires an explicit user request.
+`ExistingHomeSections.tsx` preserves the original homepage markup. `HomeSections`
+renders ordered Platform page references in that same visual system, with the
+hero pinned first. New custom presentation belongs here, not in arbitrary CMS HTML.
+
+`DISCOVERY_CATALOG_SITE_KEY` connects server-rendered editorial content only. It
+must not imply site-kit/CRM, email or advertising activation. Keep those independent
+and gated. Service/group pages and homepage sections read one published snapshot
+per render, without persistent caching; drafts remain private. Do not serve old
+catalog content on a publishing API failure.

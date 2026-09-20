@@ -6,7 +6,9 @@ export type Service = {
 };
 export type Group = { id: string; slug: string; name: string; description: string };
 export type MenuItem = { id: string; label: string; type: 'group' | 'service' | 'page'; target: string; parentId: string | null };
-export type Catalog = { services: Service[]; groups: Group[]; navigation: MenuItem[] };
+export type HomePageReference = { type: 'service' | 'group' | 'page'; target: string };
+export type HomeSection = { id: string; title: string; visible: boolean } & ({ kind: 'existing'; block: 'stats' | 'overview' | 'why' | 'testimonial' | 'cta' } | { kind: 'pages'; layout: 'cards' | 'feature'; description: string; items: HomePageReference[] });
+export type Catalog = { services: Service[]; groups: Group[]; navigation: MenuItem[]; homeSections?: HomeSection[] };
 export function servicePrice(service: Service) {
   const price = service.price;
   if (price.type === 'quote' || price.amount === null) return 'Price on request';
